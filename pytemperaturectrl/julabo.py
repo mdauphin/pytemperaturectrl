@@ -22,7 +22,6 @@ class Julabo(TemperatureControl):
 	
 	def __init__(self, *args, **kwargs):
 		super(TemperatureControl, self).__init__()
-		self.min_time_interval = .250 
 		self.serial = None 
 		
 	def checkIfOpen(self):
@@ -30,10 +29,10 @@ class Julabo(TemperatureControl):
 		if self.serial == None:
 			raise Exception('Please call open function before all communication')
 		
-	def open(self, com_port):
+	def open(self, com_port, baudrate=4800):
 		''' Open serial communication'''
 		self.serial = serial.Serial( com_port,
-				 baudrate=4800,
+				 baudrate=baudrate,
 				 bytesize=serial.EIGHTBITS,
 				 parity=serial.PARITY_NONE,
 				 stopbits=serial.STOPBITS_ONE,

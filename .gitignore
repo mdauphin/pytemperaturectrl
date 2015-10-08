@@ -14,3 +14,4 @@ tox.ini
 deploy.py
 
 *.sublime-workspace
+.pypirc
